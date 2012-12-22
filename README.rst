@@ -2,6 +2,11 @@
  EL4T -- Emacs Launcher for Testing
 ====================================
 
+* `Repository <https://github.com/tkf/el4t>`_ (at GitHub)
+* `Issue tracker <https://github.com/tkf/el4t/issues>`_ (at GitHub)
+* `Travis CI <https://travis-ci.org/#!/tkf/el4t>`_ |build-status|
+
+
 Current best practice for automated test in Emacs Lisp project is to
 use ERT, which is included in Emacs 24.  However, to test with older
 Emacs, you need to load ERT manually which is very cumbersome to do.
@@ -35,3 +40,10 @@ License
 
 EL4T, including package.el and ERT distributed with EL4T, is free
 software under GPL v3.  See COPYING file for details.
+
+
+.. |build-status|
+   image:: https://secure.travis-ci.org/tkf/el4t.png
+           ?branch=master
+   :target: http://travis-ci.org/tkf/el4t
+   :alt: Build Status
