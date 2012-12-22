@@ -39,7 +39,7 @@
   (let ((testing-emacs-version
          (with-temp-buffer
            (erase-buffer)
-           (call-process (getenv "EL4T_EMACS") nil t nil
+           (call-process (getenv "EL4T_EMACS") nil '(t nil) nil
                          "-Q" "--batch" "--eval" "(print emacs-version)")
            (goto-char (point-min))
            (read (current-buffer)))))
