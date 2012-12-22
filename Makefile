@@ -1,13 +1,20 @@
 CARTON ?= carton
 EMACS ?= emacs
+EL4T_EMACS_LIST ?= ${EMACS}
 
 EL4T_CARTON = EL4T_EMACS=${EMACS} EMACS=./emacs.sh ${CARTON}
 TEST_1 = make EMACS=${EMACS} CARTON=${CARTON} test-1
 
-.PHONY : test test-1 compile clean-elpa clean-elc print-deps travis-ci
+.PHONY : test test-1 clean clean-elpa clean-elc print-deps travis-ci
 
 test: elpa
 	make test-1
+
+# E.g.: make EL4T_EMACS_LIST="emacs emacs-snapshot emacs23" test-all
+test-all:
+	for e in ${EL4T_EMACS_LIST}; do \
+		make EMACS=$$e clean test; \
+	done
 
 test-1:
 	${EL4T_CARTON} exec ./emacs.sh -Q -batch \
@@ -16,6 +23,8 @@ test-1:
 
 elpa:
 	${EL4T_CARTON} install
+
+clean: clean-elpa clean-elc
 
 clean-elpa:
 	rm -rf elpa
