@@ -24,7 +24,7 @@
 
 set -e
 # Download lib/ert/ if necessary
-(cd $(dirname $0) && git submodule update --init)
+(cd $(dirname $0) && git submodule update --init > /dev/null 2> /dev/null)
 
 EL4T_DIR=$(dirname $0)
 EL4T_EMACS="${EL4T_EMACS:-emacs}"
